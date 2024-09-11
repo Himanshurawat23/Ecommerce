@@ -1,0 +1,16 @@
+Difference between Node.js and Web Browser
+// browser
+global object = window
+we donot have file system access 
+browser ke paas web api hai
+
+
+
+
+
+
+
+// Node
+global object = Global
+lekin nodejs ke pass document ka acess nahi hota hai
+advantages writting drone softeare , create CLI, server craete karna, native applications

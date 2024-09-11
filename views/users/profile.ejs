@@ -1,0 +1,90 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3">
+      <!-- Profile Sidebar -->
+      <div class="card shadow-sm border-0">
+        <div class="card-body text-center">
+          <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Profile Image">
+          <h5 class="card-title">username:<%= currentUser.username %></h5>
+          <p class="card-text text-muted">Role: <%= currentUser.role %></p>
+          <a href="/user/edit/<%= currentUser._id %>" class="btn btn-primary btn-block">Edit Profile</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <!-- Profile Details -->
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Profile Information</h4>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h6>Email:</h6>
+              <p class="text-muted"><%= currentUser.email %></p>
+            </div>
+            <div class="col-md-6">
+              <h6>Phone Number:</h6>
+              <p class="text-muted"><%= currentUser.phoneNumber || 'N/A' %></p>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <h6>Joined Date:</h6>
+              <p class="text-muted"><%= new Date(currentUser.createdAt).toLocaleDateString() %></p>
+            </div>
+            <div class="col-md-6">
+              <h6>Total Orders:</h6>
+              <p class="text-muted">15 Orders</p> <!-- Replace with actual data -->
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-12">
+              <h6>About Me:</h6>
+              <p class="text-muted">Hello! I'm <%= currentUser.username %>, an enthusiastic seller/buyer on Shopping App.</p>
+            </div>
+          </div>
+
+          <hr>
+
+          <!-- Order History or other info -->
+          <h5 class="mb-3">Order History</h5>
+          <p class="text-muted">You haven't placed any orders yet.</p> <!-- Replace with actual data -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Custom CSS for the Profile Page -->
+<style>
+  .card-body img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .card {
+    border-radius: 12px;
+  }
+
+  h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+
+  hr {
+    border-top: 1px solid #dee2e6;
+  }
+
+  .text-muted {
+    font-size: 0.95rem;
+  }
+</style>

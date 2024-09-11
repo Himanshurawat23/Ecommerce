@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/" style="font-weight: bold; font-size: 1.5rem; color: #007bff;">
+      <i class="fa fa-shopping-cart"></i> Shopping App
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/products">Home</a>
+        </li>
+        <% if(currentUser && currentUser.role === 'seller'){%>
+        <li class="nav-item">
+          <a class="nav-link" href="/product/new">Add Product</a>
+        </li>
+        <% } %>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Search Bar -->
+      <form class="d-flex mx-auto" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </form>
+
+      <!-- User Section -->
+      <div class="d-flex align-items-center">
+        <% if (!currentUser) { %>
+          <a href="/login" class="btn btn-outline-primary mx-2">Login</a>
+          <a href="/register" class="btn btn-primary">Sign Up</a>
+        <% } else { %>
+          <!-- /user/profile/<%=currentUser._id%> -->
+          <a href="#" class="nav-link mx-2">Hello, <%=currentUser.username%></a>
+          <a href="/user/cart" class="nav-link position-relative mx-2">
+            <i class="fa-solid fa-cart-shopping fa-lg"></i>
+            <% if(currentUser.cart.length > 0){ %>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <%=currentUser.cart.length%>
+              </span>
+            <% } %>
+          </a>
+          <a href="/logout" class="btn btn-outline-danger mx-2">Logout</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Custom CSS for Navbar -->
+<style>
+  .navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Custom hover effect for navbar links */
+  .nav-link:hover {
+    color: #007bff !important;
+    text-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+  }
+
+  /* Badge styling */
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.5em;
+    line-height: 1;
+  }
+
+  /* Shopping cart icon hover effect */
+  .fa-cart-shopping:hover {
+    color: #ff4757;
+    transition: color 0.3s ease-in-out;
+  }
+
+  /* Button styling for a more modern look */
+  .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  /* Responsive search bar */
+  @media (max-width: 992px) {
+    form {
+      width: 100%;
+    }
+    form .form-control {
+      margin-bottom: 10px;
+    }
+  }
+</style>

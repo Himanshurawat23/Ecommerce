@@ -1,0 +1,46 @@
+<% layout('layouts/boilerplate') %>
+
+
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="col-md-6">
+        <%- include('../partials/flash') %>
+        <h1 class="display-6 text-center mb-4">Login</h1>
+        <div class="card shadow-lg border-0 rounded-lg">
+            <div class="card-body">
+                <form action="/login" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label" for="username">Name:</label>
+                        <input class="form-control" type="text" name="username" id="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="password">Password:</label>
+                        <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg w-100">Login</button>
+                    <p class="fw-light text-center mt-3">Don't have an account? <a href="/register" class="text-primary">Sign Up</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional Custom CSS for further customization -->
+<style>
+    .container {
+        margin-top: 0;
+    }
+    .card {
+        border-radius: 1rem;
+    }
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+    .btn-success:hover {
+        background-color: #218838;
+    }
+    .text-primary {
+        font-weight: bold;
+    }
+</style>

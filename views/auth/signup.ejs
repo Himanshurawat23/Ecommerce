@@ -1,0 +1,64 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="col-md-6">
+        <%- include('../partials/flash') %>
+        <h1 class="display-6 text-center mb-4">Sign Up</h1>
+        <div class="card shadow-lg border-0 rounded-lg">
+            <div class="card-body">
+                <form action="/register" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label" for="username">Name:</label>
+                        <input class="form-control" type="text" name="username" id="username" placeholder="Enter your name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="email">Email:</label>
+                        <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <!-- <div class="mb-3">
+                        <label class="form-label" for="phoneNumber">Phone Number:</label>
+                        <input class="form-control" type="text" name="phoneNumber" id="phoneNumber" placeholder="Enter your phone number" required>
+                    </div> -->
+                    <div class="mb-3">
+                        <p class="mb-2">Want to register as?</p>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="role" value="buyer" id="buyer" required>
+                            <label class="form-check-label" for="buyer">Buyer</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="role" value="seller" id="seller" required>
+                            <label class="form-check-label" for="seller">Seller</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="password">Password:</label>
+                        <input class="form-control" type="password" name="password" id="password" placeholder="Create a password" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg w-100">Sign Up</button>
+                    <p class="fw-light text-center mt-3">Already have an account? <a href="/login" class="text-primary">Login</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional Custom CSS for further customization -->
+<style>
+    .container {
+        margin-top: 0;
+    }
+    .card {
+        border-radius: 1rem;
+    }
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+    .btn-success:hover {
+        background-color: #218838;
+    }
+    .text-primary {
+        font-weight: bold;
+    }
+</style>
